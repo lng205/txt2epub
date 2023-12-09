@@ -107,6 +107,13 @@ def add_front_image(book):
 
 def split_into_chapters(text, pattern):
     chapters = []
+    first_match = pattern.search(text)
+
+    # Include the preface section
+    preface_end = first_match.start() if first_match else len(text)
+    preface_content = text[:preface_end].strip()
+    chapters.append(("Preface", preface_content))
+
     for match in pattern.finditer(text):
         chapter_title = match.group(1).strip()
         print(f"Chapter found: {chapter_title}")
@@ -114,6 +121,7 @@ def split_into_chapters(text, pattern):
         next_match = next(pattern.finditer(text, end), None)
         start_next = next_match.start() if next_match else len(text)
         chapters.append((chapter_title, text[end:start_next].strip()))
+
     return chapters
 
 

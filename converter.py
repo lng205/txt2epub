@@ -1,31 +1,30 @@
 """
 TXT to EPUB Converter Module
 
-This module is designed to convert a text (.txt) file into an EPUB format eBook. It includes functionalities for processing chapters, inserting images, and setting a cover image.
+Converts a .txt file into an EPUB eBook with chapter processing and image insertion.
 
 Features:
-- Automatically detects and uses the first .txt file in the current directory.
-- Splits the text into chapters based on a specified regular expression pattern.
-- Replaces specified placeholders in the text with images from a given directory, in sequential order.
-- Adds a series of images as the initial pages of the EPUB, typically used for front matter images.
-- Automatically finds and sets a single image file (jpg, png, or jpeg) as the EPUB cover.
+- Detects and uses the first .txt and cover image file in the current directory.
+- Splits text into chapters and replaces placeholders with images.
+- Adds front matter images and sets an EPUB cover.
 
 Usage:
-1. Ensure a single .txt file and only one cover image file (jpg, png, or jpeg) are present in the current directory.
-2. Place image files for placeholders and front matter in their respective 'images' and 'front_images' directories.
-3. Run the script to generate an EPUB file named after the original .txt file with additional formatting and images.
+- Place a .txt file and cover image in the directory.
+- Store placeholder and front matter images in 'images' and 'front_images' directories.
+- Run the script to generate an EPUB file.
 
 Exceptions:
-- Raises FileNotFoundError if a suitable cover image is not found.
+- FileNotFoundError for missing cover image.
 
 Functions:
-- main(): The main function of the script, orchestrating the EPUB creation process.
-- find_cover_image(): Searches for a single cover image file in the current directory.
-- split_into_chapters(text, pattern): Splits the given text into chapters based on the provided regex pattern.
-- replace_placeholders_with_images(content, image_files): Replaces placeholders in the content with the specified images.
+- main(): Coordinates the EPUB creation.
+- find_cover_image(): Finds a cover image file.
+- split_into_chapters(text, pattern): Divides text into chapters.
+- replace_placeholders_with_images(content, image_files): Replaces text placeholders with images.
 
 Author: lng205
 """
+
 
 
 import re

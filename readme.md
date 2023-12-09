@@ -11,3 +11,5 @@ Python脚本用于将txt文件及插图制作为epub电子书，制作目录，�
 脚本根目录放置封面图和txt文本。将卷首图置于`front_images/`，将文本中间的图片置于`images/`。
 
 shell脚本用于批处理，自动生成多个子目录中的小说。
+
+运行`pip install EbookLib`安装第三方库。
